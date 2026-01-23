@@ -28,6 +28,9 @@ init()
 */
 onBotConnected()
 {
+	if ( !getdvarfloat( "bots_main_chat" ) )
+		return;
+	
 	for ( ;; )
 	{
 		level waittill( "bot_connected", bot );
