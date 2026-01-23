@@ -193,11 +193,6 @@ getCardTitles()
 			empty_rows = 0;
 		}
 		
-		if ( !issubstr( card_name, "cardtitle_" ) )
-		{
-			continue;
-		}
-		
 		cards[ cards.size ] = card_name;
 	}
 	
