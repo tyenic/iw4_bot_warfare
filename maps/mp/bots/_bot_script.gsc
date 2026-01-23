@@ -450,22 +450,7 @@ getKillstreaks()
 			empty_rows = 0;
 		}
 		
-		if ( streak_name == "" || streak_name == "none" )
-		{
-			continue;
-		}
-		
-		if ( streak_name == "b1" )
-		{
-			continue;
-		}
-		
-		if ( streak_name == "sentry" ) // theres an airdrop version
-		{
-			continue;
-		}
-		
-		if ( issubstr( streak_name, "KILLSTREAKS_" ) )
+		if ( streak_name == "none" || streak_name == "b1" || streak_name == "sentry" || issubstr( streak_name, "KILLSTREAKS_" )
 		{
 			continue;
 		}
