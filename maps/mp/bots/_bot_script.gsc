@@ -364,7 +364,7 @@ getCamos()
 			empty_rows = 0;
 		}
 		
-		if ( camo_name == "" )
+		if ( camo_name == "gold" || camo_name == "prestige" )
 		{
 			continue;
 		}
