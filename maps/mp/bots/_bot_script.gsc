@@ -221,11 +221,6 @@ getCardIcons()
 			empty_rows = 0;
 		}
 		
-		if ( !issubstr( card_name, "cardicon_" ) )
-		{
-			continue;
-		}
-		
 		cards[ cards.size ] = card_name;
 	}
 	
