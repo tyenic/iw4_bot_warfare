@@ -1473,8 +1473,11 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 25:
-			message = ( "ooohh that was so close " + killer.name + " and you know it !! " );
-			break;
+			if ( ( killer.health / killer.maxHealth ) <= ( 1 / 2 ) )
+			{
+				message = ( "ooohh that was so close " + killer.name + " and you know it !! " );
+				break;
+			}
 			
 		case 26:
 			message = ( "^" + ( randomint( 7 ) + 1 ) + "rofl" );
