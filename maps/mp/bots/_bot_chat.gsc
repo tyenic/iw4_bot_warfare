@@ -1405,7 +1405,7 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 8:
-			message = ( "^" + ( randomint( 7 ) + 1 ) + "n1 " + killer.name );
+			message = ( "Nice kill " + killer.name + "! " + ( randomint( 6 ) + 5 ) + "/10!" );
 			break;
 			
 		case 9:
