@@ -1283,12 +1283,18 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 30:
-			message = ( "haha thanks " + tolower( victim.name ) + ", im at a " + self.pers[ "cur_kill_streak" ] + " streak." );
-			break;
+			if ( self.pers["cur_kill_streak"] > 1 )
+			{
+				message = ( "haha thanks " + tolower( victim.name ) + ", im at a " + self.pers[ "cur_kill_streak" ] + " streak." );
+				break;
+			}
 			
 		case 31:
-			message = ( "lol " + tolower( victim.name ) + " is at a " + victim.pers[ "cur_death_streak" ] + " deathstreak" );
-			break;
+			if ( victim.pers[ "cur_death_streak" ] > 1 )
+			{
+				message = ( "lol " + tolower( victim.name ) + " is at a " + victim.pers[ "cur_death_streak" ] + " deathstreak" );
+				break;
+			}
 			
 		case 32:
 			message = ( "KLAPPED" );
