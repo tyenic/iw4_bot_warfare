@@ -1223,7 +1223,7 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 15:
-			message = ( "LOL xD xDDDD " + victim.name + " sucks! HAHA ROFLMAO" );
+			message = ( "LOL xD xDDDD " + toupper( victim.name ) + " SUCKS! HAHA ROFLMAO" );
 			break;
 			
 		case 16:
@@ -1235,7 +1235,7 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 18:
-			message = ( "Lol u suck " + victim.name );
+			message = ( "Lol u suck " + tolower( victim.name ) );
 			break;
 			
 		case 19:
@@ -1243,7 +1243,7 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 20:
-			message = ( "sit down " + victim.name );
+			message = ( "sit down " + tolower( victim.name ) );
 			break;
 			
 		case 21:
@@ -1271,23 +1271,23 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 27:
-			message = ( "i bet " + victim.name + " is using the arrow keys to move." );
+			message = ( "i bet " + tolower( victim.name ) + " is using the arrow keys to move." );
 			break;
 			
 		case 28:
-			message = ( "lol its noobs like " + victim.name + " that ruin teams" );
+			message = ( "lol its noobs like " + tolower( victim.name ) + " that ruin teams" );
 			break;
 			
 		case 29:
-			message = ( "lolwat was that " + victim.name + "?" );
+			message = ( "lolwat was that " + tolower( victim.name ) + "?" );
 			break;
 			
 		case 30:
-			message = ( "haha thanks " + victim.name + ", im at a " + self.pers[ "cur_kill_streak" ] + " streak." );
+			message = ( "haha thanks " + tolower( victim.name ) + ", im at a " + self.pers[ "cur_kill_streak" ] + " streak." );
 			break;
 			
 		case 31:
-			message = ( "lol " + victim.name + " is at a " + victim.pers[ "cur_death_streak" ] + " deathstreak" );
+			message = ( "lol " + tolower( victim.name ) + " is at a " + victim.pers[ "cur_death_streak" ] + " deathstreak" );
 			break;
 			
 		case 32:
@@ -1295,11 +1295,11 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 33:
-			message = ( "oooh get merked " + victim.name );
+			message = ( "oooh get merked " + tolower( victim.name ) );
 			break;
 			
 		case 34:
-			message = ( "i love " + getMapName( getdvar( "mapname" ) ) + "!" );
+			message = ( "i love " + tolower( getMapName( getdvar( "mapname" ) ) ) + "!" );
 			break;
 			
 		case 35:
@@ -1311,7 +1311,7 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 37:
-			message = ( "lol i rekt " + victim.name );
+			message = ( "lol i rekt " + tolower( victim.name ) );
 			break;
 			
 		case 38:
@@ -1319,7 +1319,7 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 39:
-			message = ( victim.name + " just got rekt" );
+			message = ( tolower( victim.name ) + " just got rekt" );
 			break;
 			
 		case 40:
@@ -1331,7 +1331,7 @@ bot_chat_killed_watch( victim )
 			break;
 			
 		case 41:
-			message = ( "lol u got killed " + victim.name + ", kek" );
+			message = ( "lol u got killed " + tolower( victim.name ) + ", kek" );
 			break;
 	}
 	
@@ -1472,11 +1472,11 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 27:
-			message = ( "AAAAHHHHH! WTF! IM GOING TO KILL YOU " + killer.name );
+			message = ( "AAAAHHHHH! WTF! IM GOING TO KILL YOU " + toupper( killer.name ) );
 			break;
 			
 		case 28:
-			message = ( "AHH! IM DEAD BECAUSE " + level.players[ randomint( level.players.size ) ].name + " is a noob!" );
+			message = ( "AHH! IM DEAD BECAUSE " + toupper( level.players[ randomint( level.players.size ) ].name ) + " is a noob!" );
 			break;
 			
 		case 29:
@@ -1488,7 +1488,7 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 31:
-			message = ( "Next time GET OUT OF MY WAY " + level.players[ randomint( level.players.size ) ].name + "!!" );
+			message = ( "Next time GET OUT OF MY WAY " + toupper( level.players[ randomint( level.players.size ) ].name ) + "!!" );
 			break;
 			
 		case 32:
@@ -1504,19 +1504,19 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 35:
-			message = ( "WOW, USE A REAL GUN " + killer.name + "!" );
+			message = ( "WOW, USE A REAL GUN " + toupper( killer.name ) + "!" );
 			break;
 			
 		case 36:
-			message = ( "k wtf. " + killer.name + " is hacking" );
+			message = ( "k wtf. " + tolower( killer.name ) + " is hacking" );
 			break;
 			
 		case 37:
-			message = ( "nice wallhacks " + killer.name );
+			message = ( "nice wallhacks " + tolower( killer.name ) );
 			break;
 			
 		case 38:
-			message = ( "wh " + killer.name );
+			message = ( "wh " + tolower( killer.name ) );
 			break;
 			
 		case 39:
@@ -1524,15 +1524,15 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 40:
-			message = ( "wow " + getMapName( getdvar( "mapname" ) ) + " is messed up" );
+			message = ( "wow " + tolower( getMapName( getdvar( "mapname" ) ) ) + " is messed up" );
 			break;
 			
 		case 41:
-			message = ( "lolwtf was that " + killer.name + "?" );
+			message = ( "lolwtf was that " + tolower( killer.name ) + "?" );
 			break;
 			
 		case 42:
-			message = ( "admin pls ban " + killer.name );
+			message = ( "admin pls ban " + tolower( killer.name ) );
 			break;
 			
 		case 43:
@@ -1544,7 +1544,7 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 45:
-			message = ( "someone kill " + killer.name + ", they are on a streak of " + killer.pers[ "cur_kill_streak" ] + "!" );
+			message = ( "someone kill " + tolower( killer.name ) + ", they are on a streak of " + killer.pers[ "cur_kill_streak" ] + "!" );
 			break;
 			
 		case 46:
@@ -1552,11 +1552,11 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 47:
-			message = ( "nice noob gun " + killer.name );
+			message = ( "nice noob gun " + tolower( killer.name ) );
 			break;
 			
 		case 48:
-			message = ( "stop camping " + killer.name + "!" );
+			message = ( "stop camping " + tolower( killer.name ) + "!" );
 			break;
 			
 		case 49:
@@ -1568,39 +1568,39 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 51:
-			message = ( "lol " + getMapName( getdvar( "mapname" ) ) + " sux" );
+			message = ( "lol " + tolower( getMapName( getdvar( "mapname" ) ) ) + " sux" );
 			break;
 			
 		case 52:
-			message = ( "why are we even playing on " + getMapName( getdvar( "mapname" ) ) + "?" );
+			message = ( "why are we even playing on " + tolower( getMapName( getdvar( "mapname" ) ) ) + "?" );
 			break;
 			
 		case 53:
-			message = ( getMapName( getdvar( "mapname" ) ) + " is such an unfair map!!" );
+			message = ( tolower( getMapName( getdvar( "mapname" ) ) ) + " is such an unfair map!!" );
 			break;
 			
 		case 54:
-			message = ( "what were they thinking when making " + getMapName( getdvar( "mapname" ) ) + "?!" );
+			message = ( "what were they thinking when making " + tolower( getMapName( getdvar( "mapname" ) ) ) + "?!" );
 			break;
 			
 		case 55:
-			message = ( killer.name + " totally just destroyed me!" );
+			message = ( tolower( killer.name ) + " totally just destroyed me!" );
 			break;
 			
 		case 56:
-			message = ( "can i be admen plz? so i can ban " + killer.name );
+			message = ( "can i be admen plz? so i can ban " + tolower( killer.name ) );
 			break;
 			
 		case 57:
-			message = ( "wow " + killer.name + " is such a no life!!" );
+			message = ( "wow " + tolower( killer.name ) + " is such a no life!!" );
 			break;
 			
 		case 58:
-			message = ( "man i got rekt by " + killer.name );
+			message = ( "man i got rekt by " + tolower( killer.name ) );
 			break;
 			
 		case 59:
-			message = ( "admen pls ben " + killer.name );
+			message = ( "admen pls ben " + tolower( killer.name ) );
 			break;
 			
 		case 60:
@@ -1612,31 +1612,31 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 61:
-			message = ( "you are so banned " + killer.name );
+			message = ( "you are so banned " + tolower( killer.name ) );
 			break;
 			
 		case 62:
-			message = ( "recorded reported and deported! " + killer.name );
+			message = ( "recorded reported and deported " + tolower( killer.name ) + "!" );
 			break;
 			
 		case 63:
-			message = ( "hack name " + killer.name + "?" );
+			message = ( "hack name " + tolower( killer.name ) + "?" );
 			break;
 			
 		case 64:
-			message = ( "dude can you send me that hack " + killer.name + "?" );
+			message = ( "dude can you send me that hack " + tolower( killer.name ) + "?" );
 			break;
 			
 		case 65:
-			message = ( "nice aimbot " + killer.name + "!!1" );
+			message = ( "nice aimbot " + tolower( killer.name ) + "!!1" );
 			break;
 			
 		case 66:
-			message = ( "you are benned " + killer.name + "!!" );
+			message = ( "you are benned " + tolower( killer.name ) + "!!" );
 			break;
 			
 		case 67:
-			message = ( "that was topkek " + killer.name );
+			message = ( "that was topkek " + tolower( killer.name ) );
 			break;
 	}
 	
