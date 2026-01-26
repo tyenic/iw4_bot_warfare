@@ -1358,6 +1358,7 @@ bot_chat_death_watch( killer, last_ks )
 	}
 	
 	message = "";
+	skip_teammate_lines = false;
 	
 	switch ( randomint( 68 ) )
 	{
@@ -1488,20 +1489,55 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 28:
-			message = ( "AHH! IM DEAD BECAUSE " + toupper( level.players[ randomint( level.players.size ) ].name ) + " is a noob!" );
-			break;
+			
+			random_teammate = self get_random_teammate();
+			if ( IsDefined( random_teammate ) )
+			{
+				message = ( "AHH! IM DEAD BECAUSE " + toupper( random_teammate.name ) + " IS A NOOB!" );
+				break;
+			}
+			else
+			{
+				skip_teammate_lines = true;
+			}
 			
 		case 29:
-			message = ( level.players[ randomint( level.players.size ) ].name + ", please don't talk." );
-			break;
+			if ( !skip_teammate_lines ) {
+				random_teammate = self get_random_teammate();
+				if ( IsDefined( random_teammate ) )
+				{
+					message = ( random_teammate.name + ", please don't talk." );
+					break;
+				}
+				else
+				{
+					skip_teammate_lines = true;
+				}
+			}
 			
 		case 30:
-			message = ( "Wow " + level.players[ randomint( level.players.size ) ].name + " is a blocker noob!" );
-			break;
+			if ( !skip_teammate_lines ) {
+				random_teammate = self get_random_teammate();
+				if ( IsDefined( random_teammate ) ) {
+					message = ( "Wow " + random_teammate.name + " is a blocker noob!" );
+					break;
+				}
+				else
+				{
+					skip_teammate_lines = true;
+				}
+			}
 			
 		case 31:
-			message = ( "Next time GET OUT OF MY WAY " + toupper( level.players[ randomint( level.players.size ) ].name ) + "!!" );
-			break;
+			if ( !skip_teammate_lines )
+			{
+				random_teammate = self get_random_teammate();
+				if ( IsDefined( random_teammate ) )
+				{
+					message = ( "Next time GET OUT OF MY WAY " + toupper( random_teammate.name ) + "!!" );
+					break;
+				}
+			}
 			
 		case 32:
 			message = ( "Wow, I'm dead because " + killer.name + " is a tryhard..." );
@@ -1657,6 +1693,31 @@ bot_chat_death_watch( killer, last_ks )
 	
 	wait ( randomint( 3 ) + 1 );
 	self BotDoChat( 8, message );
+}
+
+/*
+	Get random teammate
+*/
+get_random_teammate()
+{
+	if ( !IsDefined( self ) || !level.teamBased )
+	{
+		return;
+	}
+	
+	teammates = [];
+	foreach ( player in level.players )
+	{
+		if ( player.team == self.team && player != self )
+		{
+			teammates[teammates.size] = player;
+		}
+	}
+	
+	if ( teammates.size > 0 )
+	{
+		return random( teammates );
+	}
 }
 
 /*
