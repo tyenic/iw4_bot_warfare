@@ -29,7 +29,9 @@ init()
 onBotConnected()
 {
 	if ( !getdvarfloat( "bots_main_chat" ) )
+	{
 		return;
+	}
 	
 	for ( ;; )
 	{
