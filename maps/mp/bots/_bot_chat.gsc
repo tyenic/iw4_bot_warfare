@@ -1378,16 +1378,19 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 4:
-			if ( last_ks > 0 )
+			if ( last_ks > 1 )
 			{
 				message = ( "^" + ( randomint( 7 ) + 1 ) + "Nooooooooo my killstreaks!! :( I had a " + last_ks + " killstreak!!" );
 			}
-			else
+			else if ( self.pers[ "cur_death_streak" ] > 1 )
 			{
 				message = ( "man im getting spawn killed, i have a " + self.pers[ "cur_death_streak" ] + " deathstreak!" );
 			}
 			
-			break;
+			if ( message != "" )
+			{
+				break;
+			}
 			
 		case 5:
 			message = ( "^" + ( randomint( 7 ) + 1 ) + "Stop spawn KILLING!!!" );
@@ -1550,8 +1553,11 @@ bot_chat_death_watch( killer, last_ks )
 			break;
 			
 		case 45:
-			message = ( "someone kill " + tolower( killer.name ) + ", they are on a streak of " + killer.pers[ "cur_kill_streak" ] + "!" );
-			break;
+			if ( killer.pers[ "cur_kill_streak" ] > 1 )
+			{
+				message = ( "someone kill " + tolower( killer.name ) + ", they are on a streak of " + killer.pers[ "cur_kill_streak" ] + "!" );
+				break;
+			}
 			
 		case 46:
 			message = ( "man i died" );
